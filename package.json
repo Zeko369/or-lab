@@ -1,0 +1,13 @@
+{
+  "name": "or-lab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Fran Zekan <zekan.fran369@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "prisma": "^4.5.0"
+  },
+  "dependencies": {
+    "@prisma/client": "^4.5.0"
+  }
+}
