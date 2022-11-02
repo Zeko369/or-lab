@@ -1,13 +1,25 @@
 {
   "name": "or-lab",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "export.mjs",
   "author": "Fran Zekan <zekan.fran369@gmail.com>",
   "license": "MIT",
+  "scripts": {
+    "db:migrate": "prisma migrate dev",
+    "db:rebuild": "prisma migrate reset",
+    "db:studio": "prisma studio",
+    "export": "node export.mjs"
+  },
   "devDependencies": {
     "prisma": "^4.5.0"
   },
   "dependencies": {
-    "@prisma/client": "^4.5.0"
+    "@faker-js/faker": "^7.6.0",
+    "@fast-csv/format": "^4.3.5",
+    "@prisma/client": "^4.5.0",
+    "lodash-es": "^4.17.21"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   }
 }
