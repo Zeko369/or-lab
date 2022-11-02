@@ -5,13 +5,20 @@
   "author": "Fran Zekan <zekan.fran369@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "db:migrate": "prisma migrate dev"
+    "db:migrate": "prisma migrate dev",
+    "db:rebuild": "prisma migrate reset",
+    "db:studio": "prisma studio"
   },
   "devDependencies": {
     "prisma": "^4.5.0"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
-    "@prisma/client": "^4.5.0"
+    "@fast-csv/format": "^4.3.5",
+    "@prisma/client": "^4.5.0",
+    "lodash-es": "^4.17.21"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.mjs"
   }
 }
