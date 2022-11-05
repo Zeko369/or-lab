@@ -1,9 +1,9 @@
 "use client";
+import React from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import React from "react";
-
 import { SuperJSONResult } from "superjson/dist/types";
+
 import { useProductsQuery } from "./useProductsQuery";
 
 type FilterTableProps = { productsSuperJSON: SuperJSONResult };
