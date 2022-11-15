@@ -1,8 +1,8 @@
-# OR-lab-1
+# OR-lab-2
 
 ## Skup podataka: Trgovina s proizvodima
 
-### Version 1.0
+### Version 2.0
 
 ### Autor: Fran Zekan
 
@@ -14,8 +14,8 @@ MIT (auto-generirana kroz Github-ov `gh` CLI alat)
 
 ### Artifacts
 
-- [`dist/products.json`](https://github.com/Zeko369/or-lab/blob/main/dist/products.json) JSON katalog proizvoda
-- [`dist/products.csv`](https://github.com/Zeko369/or-lab/blob/main/dist/products.csv) CSV katalog proizvoda
+- [`public/products.json`](https://github.com/Zeko369/or-lab/blob/main/public/products.json) JSON katalog proizvoda
+- [`public/products.csv`](https://github.com/Zeko369/or-lab/blob/main/public/products.csv) CSV katalog proizvoda
 
 ### Attributes:
 
@@ -48,3 +48,8 @@ MIT (auto-generirana kroz Github-ov `gh` CLI alat)
 - `store_rating` (Float): Rating of the shop (0-5)
 - `store_created_at` (DateTime): Time this entry was created
 - `store_updated_at` (DateTime): Time this entry was last updated
+
+### Tech
+
+- NextJS + TailwindCSS + TanStack Query
+- @sinclair/typebox for JSON Schema generation
