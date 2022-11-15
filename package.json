@@ -5,19 +5,45 @@
   "author": "Fran Zekan <zekan.fran369@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "lint": "next lint",
     "db:migrate": "prisma migrate dev",
     "db:rebuild": "prisma migrate reset",
     "db:studio": "prisma studio",
     "export": "node export.mjs"
   },
   "devDependencies": {
-    "prisma": "^4.5.0"
+    "@types/node": "18.11.9",
+    "@types/prettier": "^2.7.1",
+    "@types/react": "18.0.25",
+    "@types/react-dom": "18.0.8",
+    "autoprefixer": "^10.4.13",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
+    "postcss": "^8.4.18",
+    "prettier": "^2.7.1",
+    "prettier-plugin-tailwindcss": "^0.1.13",
+    "prisma": "^4.5.0",
+    "tailwindcss": "^3.2.2",
+    "typescript": "^5.0.0-dev.20221103"
   },
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
     "@fast-csv/format": "^4.3.5",
+    "@headlessui/react": "^1.7.4",
     "@prisma/client": "^4.5.0",
-    "lodash-es": "^4.17.21"
+    "@sinclair/typebox": "^0.25.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tanstack/react-query": "^4.14.3",
+    "@tanstack/react-table": "^8.5.22",
+    "classnames": "^2.3.2",
+    "lodash-es": "^4.17.21",
+    "next": "13.0.2",
+    "npm": "^8.19.3",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "superjson": "^1.11.0"
   },
   "prisma": {
     "seed": "node prisma/seed.mjs"

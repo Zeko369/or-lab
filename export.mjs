@@ -10,8 +10,8 @@ import { get } from "lodash-es";
 import { writeFile } from "node:fs/promises";
 
 const prisma = new PrismaClient();
-const csvOutput = join(dirname(fileURLToPath(import.meta.url)), "./dist/products.csv");
-const jsonOutput = join(dirname(fileURLToPath(import.meta.url)), "./dist/products.json");
+const csvOutput = join(dirname(fileURLToPath(import.meta.url)), "./public/products.csv");
+const jsonOutput = join(dirname(fileURLToPath(import.meta.url)), "./public/products.json");
 
 const CSV_CONFIG = [
   // PRODUCT
