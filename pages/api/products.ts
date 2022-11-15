@@ -17,9 +17,12 @@ const handler: NextApiHandler = async (req, res) => {
       },
     }),
   });
-  const response = SuperJSON.serialize(products);
 
-  res.status(200).json(response);
+  if (req.query.serialize === "false") {
+    return res.json(products);
+  }
+
+  res.json(SuperJSON.serialize(products));
 };
 
 export default handler;

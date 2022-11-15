@@ -4,8 +4,6 @@ import Image from "next/image";
 import { SuperJSONResult } from "superjson/dist/types";
 
 import { useProductsQuery } from "./useProductsQuery";
-import { Button } from "../../components/Button";
-import { Dialog } from "@headlessui/react";
 import { Input } from "../../components/Input";
 
 type FilterTableProps = { productsSuperJSON: SuperJSONResult };
@@ -17,6 +15,9 @@ export const FilterTable: React.FC<FilterTableProps> = (props) => {
   return (
     <>
       <Input label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+      {search.length > 0 && (
+        <a href={`/api/products?search=${search}&serialize=false`}> Download CSV </a>
+      )}
 
       <table>
         <thead>
@@ -26,7 +27,7 @@ export const FilterTable: React.FC<FilterTableProps> = (props) => {
             <th>brand</th>
             <th>short_description</th>
             <th>description</th>
-            <th>images</th>
+            <th>image</th>
             <th>price</th>
             <th>discount</th>
             <th>rating</th>
