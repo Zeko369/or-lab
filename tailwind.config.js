@@ -7,5 +7,11 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
+  safelist: [
+    {
+      pattern: /bg-\w*-\d*/,
+      variants: ["active", "hover", "focus"],
+    },
+  ],
 };

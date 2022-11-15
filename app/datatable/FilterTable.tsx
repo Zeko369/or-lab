@@ -1,22 +1,23 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
 import { SuperJSONResult } from "superjson/dist/types";
 
 import { useProductsQuery } from "./useProductsQuery";
+import { Button } from "../../components/Button";
+import { Dialog } from "@headlessui/react";
+import { Input } from "../../components/Input";
 
 type FilterTableProps = { productsSuperJSON: SuperJSONResult };
 
 export const FilterTable: React.FC<FilterTableProps> = (props) => {
-  const { data } = useProductsQuery(props.productsSuperJSON);
-  const router = useRouter();
+  const [search, setSearch] = useState("");
+  const { data } = useProductsQuery(props.productsSuperJSON, search);
 
   return (
     <>
-      <button className="px-2 py-1 bg-blue-600 hover:bg-blue-700" onClick={() => router.refresh()}>
-        Thingy
-      </button>
+      <Input label="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+
       <table>
         <thead>
           <tr>
@@ -30,37 +31,37 @@ export const FilterTable: React.FC<FilterTableProps> = (props) => {
             <th>discount</th>
             <th>rating</th>
             <th>stock</th>
-            <th>created_at</th>
-            <th>updated_at</th>
+            {/* <th>created_at</th> */}
+            {/* <th>updated_at</th> */}
           </tr>
         </thead>
         <tbody>
           {data.map((product) => (
             <tr key={product.id}>
-              <th>{product.id}</th>
-              <th>{product.name}</th>
-              <th>{product.brand}</th>
-              <th>{product.shortDescription}</th>
-              <th>{product.description}</th>
-              <th>
-                <div className="flex">
-                  {product.images.map((image, index) => (
+              <td>{product.id}</td>
+              <td>{product.name}</td>
+              <td>{product.brand}</td>
+              <td>{product.shortDescription}</td>
+              <td>{product.description}</td>
+              <td>
+                <div className="flex gap-2">
+                  {product.images.slice(0, 1).map((image, index) => (
                     <Image
                       key={`${image}-${index}`}
                       src={image}
                       alt={`Image ${index}`}
-                      width="200"
-                      height="200"
+                      width="40"
+                      height="40"
                     />
                   ))}
                 </div>
-              </th>
-              <th>{product.price}</th>
-              <th>{product.discount}</th>
-              <th>{product.rating}</th>
-              <th>{product.stock}</th>
-              <th>{product.createdAt.toLocaleDateString()}</th>
-              <th>{product.updatedAt.toLocaleDateString()}</th>
+              </td>
+              <td>{product.price}</td>
+              <td>{product.discount}</td>
+              <td>{product.rating}</td>
+              <td>{product.stock}</td>
+              {/* <td>{product.createdAt.toLocaleDateString()}</td> */}
+              {/* <td>{product.updatedAt.toLocaleDateString()}</td> */}
             </tr>
           ))}
         </tbody>
