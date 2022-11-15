@@ -32,13 +32,26 @@ const ProductSchema = Type.Object({
   discount: Type.Integer(),
   rating: Type.Integer(),
   stock: Type.Integer(),
-  store: StoreSchema,
   storeId: Type.Integer(),
   createdAt: Type.String({ format: "date-time" }),
   updatedAt: Type.String({ format: "date-time" }),
 });
 
-await writeFile(
-  join(dirname(fileURLToPath(import.meta.url)), "./public/productSchema.json"),
-  JSON.stringify(ProductSchema, null, 2)
-);
+const FullProductSchema = Type.Intersect([
+  ProductSchema,
+  Type.Object({
+    store: StoreSchema,
+  }),
+]);
+
+await Promise.all([
+  writeFile(
+    join(dirname(fileURLToPath(import.meta.url)), "./public/productSchema.json"),
+    JSON.stringify(ProductSchema, null, 2)
+  ),
+
+  writeFile(
+    join(dirname(fileURLToPath(import.meta.url)), "./public/fullProductSchema.json"),
+    JSON.stringify(FullProductSchema, null, 2)
+  ),
+]);

@@ -8,6 +8,9 @@ export default function Page() {
       <Link href="/datatable">Datatable</Link>
       <a href="/products.csv">Download CSV</a>
       <a href="/products.json">Download JSON</a>
+
+      <a href="/productSchema.json">Download JSON Schema</a>
+      <a href="/fullProductSchema.json">Download JSON Schema (with store)</a>
     </div>
   );
 }

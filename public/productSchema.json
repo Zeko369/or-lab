@@ -34,63 +34,6 @@
     "stock": {
       "type": "integer"
     },
-    "store": {
-      "type": "object",
-      "properties": {
-        "id": {
-          "type": "integer"
-        },
-        "name": {
-          "type": "string"
-        },
-        "description": {
-          "type": "string"
-        },
-        "image": {
-          "type": "string"
-        },
-        "address": {
-          "type": "string"
-        },
-        "owner": {
-          "type": "string"
-        },
-        "phoneNumber": {
-          "type": "string"
-        },
-        "opensAt": {
-          "type": "integer"
-        },
-        "closesAt": {
-          "type": "integer"
-        },
-        "rating": {
-          "type": "number"
-        },
-        "createdAt": {
-          "format": "date-time",
-          "type": "string"
-        },
-        "updatedAt": {
-          "format": "date-time",
-          "type": "string"
-        }
-      },
-      "required": [
-        "id",
-        "name",
-        "description",
-        "image",
-        "address",
-        "owner",
-        "phoneNumber",
-        "opensAt",
-        "closesAt",
-        "rating",
-        "createdAt",
-        "updatedAt"
-      ]
-    },
     "storeId": {
       "type": "integer"
     },
@@ -114,7 +57,6 @@
     "discount",
     "rating",
     "stock",
-    "store",
     "storeId",
     "createdAt",
     "updatedAt"
