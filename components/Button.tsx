@@ -1,4 +1,4 @@
-import { PropsWithChildren } from "react";
+import { PropsWithChildren, useMemo } from "react";
 import clx from "classnames";
 
 type Color =
@@ -28,23 +28,30 @@ type Color =
 type ButtonProps = PropsWithChildren<{ size?: "sm" | "md"; variantColor?: Color }> &
   React.ButtonHTMLAttributes<HTMLButtonElement>;
 
-export const Button: React.FC<ButtonProps> = (props) => {
-  const { children, size = "md", variantColor = "blue", ...rest } = props;
-
-  return (
-    <button
-      className={clx(
+export const useButtonClx = (args: Pick<ButtonProps, "size" | "variantColor" | "disabled">) => {
+  const { size = "md", variantColor = "blue", disabled } = args;
+  return useMemo(
+    () =>
+      clx(
         "rounded-md text-white",
-        rest.disabled
+        disabled
           ? `bg-${variantColor}-200 cursor-not-allowed`
           : `bg-${variantColor}-500 hover:bg-${variantColor}-600 active:bg-${variantColor}-700`,
         {
           "px-3 py-1 text-sm": size === "sm",
           "px-5 py-2 text-base": size === "md",
         }
-      )}
-      {...rest}
-    >
+      ),
+    [size, variantColor]
+  );
+};
+
+export const Button: React.FC<ButtonProps> = (props) => {
+  const { children, size, variantColor, className, ...rest } = props;
+  const baseClassNames = useButtonClx({ size, variantColor, disabled: rest.disabled });
+
+  return (
+    <button className={`${baseClassNames} ${className}`} {...rest}>
       {children}
     </button>
   );
