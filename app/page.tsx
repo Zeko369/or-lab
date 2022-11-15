@@ -2,7 +2,7 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div>
+    <div className="flex flex-col">
       <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
 
       <Link href="/datatable">Datatable</Link>
