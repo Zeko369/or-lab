@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-col">
-      <h1 className="text-3xl font-bold underline">Hello, Next.js!</h1>
+      <h1 className="text-3xl font-bold underline">OR Lab2</h1>
       <Link href="/datatable">Datatable</Link>
       <a href="/products.csv">Download CSV</a>
       <a href="/products.json">Download JSON</a>
