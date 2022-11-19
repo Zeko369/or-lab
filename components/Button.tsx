@@ -42,7 +42,7 @@ export const useButtonClx = (args: Pick<ButtonProps, "size" | "variantColor" | "
           "px-5 py-2 text-base": size === "md",
         }
       ),
-    [size, variantColor]
+    [size, variantColor, disabled]
   );
 };
 
