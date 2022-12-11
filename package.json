@@ -7,6 +7,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "start": "next start",
     "lint": "next lint",
     "db:migrate": "prisma migrate dev",
     "db:rebuild": "prisma migrate reset",
@@ -32,6 +33,7 @@
     "@faker-js/faker": "^7.6.0",
     "@fast-csv/format": "^4.3.5",
     "@headlessui/react": "^1.7.4",
+    "@heroicons/react": "^2.0.13",
     "@prisma/client": "^4.5.0",
     "@sinclair/typebox": "^0.25.2",
     "@tailwindcss/forms": "^0.5.3",
