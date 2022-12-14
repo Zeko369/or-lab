@@ -1,4 +1,5 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema#",
   "type": "object",
   "properties": {
     "id": {
@@ -29,7 +30,7 @@
       "type": "integer"
     },
     "rating": {
-      "type": "integer"
+      "type": "number"
     },
     "stock": {
       "type": "integer"
@@ -38,12 +39,12 @@
       "type": "integer"
     },
     "createdAt": {
-      "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     },
     "updatedAt": {
-      "format": "date-time",
-      "type": "string"
+      "type": "string",
+      "format": "date-time"
     }
   },
   "required": [
@@ -60,5 +61,6 @@
     "storeId",
     "createdAt",
     "updatedAt"
-  ]
+  ],
+  "additionalProperties": false
 }

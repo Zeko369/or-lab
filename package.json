@@ -12,13 +12,17 @@
     "db:migrate": "prisma migrate dev",
     "db:rebuild": "prisma migrate reset",
     "db:studio": "prisma studio",
-    "export": "node export.mjs"
+    "export:data": "node export.mjs",
+    "export:schema": "node ./schemaGen.mjs",
+    "export:swagger": "next-swagger-doc-cli ./config/next-swagger-doc.json",
+    "export": "yarn export:data && yarn export:schema && yarn export:swagger"
   },
   "devDependencies": {
     "@types/node": "18.11.9",
     "@types/prettier": "^2.7.1",
     "@types/react": "18.0.25",
     "@types/react-dom": "18.0.8",
+    "@types/swagger-ui-react": "^4.11.0",
     "autoprefixer": "^10.4.13",
     "eslint": "8.26.0",
     "eslint-config-next": "13.0.2",
@@ -35,17 +39,19 @@
     "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@prisma/client": "^4.5.0",
-    "@sinclair/typebox": "^0.25.2",
     "@tailwindcss/forms": "^0.5.3",
     "@tanstack/react-query": "^4.14.3",
     "@tanstack/react-table": "^8.5.22",
     "classnames": "^2.3.2",
     "lodash-es": "^4.17.21",
     "next": "13.0.2",
-    "npm": "^8.19.3",
+    "next-swagger-doc": "^0.3.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "superjson": "^1.11.0"
+    "superjson": "^1.11.0",
+    "swagger-ui-react": "^4.15.5",
+    "zod": "^3.20.2",
+    "zod-to-json-schema": "^3.19.3"
   },
   "prisma": {
     "seed": "node prisma/seed.mjs"
