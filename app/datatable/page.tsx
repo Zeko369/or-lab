@@ -1,8 +1,8 @@
 import SuperJSON from "superjson";
-import { getProducts } from "../../lib/getProducts";
+import { db } from "../../prisma";
 import { FilterTable } from "./FilterTable";
 
 export default async function DataTablePage() {
-  const products = await getProducts({});
+  const products = await db.product.findMany();
   return <FilterTable productsSuperJSON={SuperJSON.serialize(products)} />;
 }

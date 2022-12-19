@@ -1,8 +1,7 @@
 import type { NextApiHandler } from "next";
 import SuperJSON from "superjson";
 import { writeToString } from "@fast-csv/format";
-
-import { getProducts } from "../../lib/getProducts";
+import { db } from "../../prisma";
 
 const CSV_CONFIG = [
   { key: "id", getter: "id" },
@@ -23,7 +22,7 @@ const handler: NextApiHandler = async (req, res) => {
   const search = req.query.search as string | undefined;
   const searchField = req.query.searchField as string | undefined;
 
-  const products = await getProducts({
+  const products = await db.product.findMany({
     ...(search && {
       where: {
         ...(searchField

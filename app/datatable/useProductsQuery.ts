@@ -2,8 +2,7 @@ import SuperJSON from "superjson";
 import { useMemo } from "react";
 import { SuperJSONResult } from "superjson/dist/types";
 import { useQuery } from "@tanstack/react-query";
-
-import { GetProducts } from "../../lib/getProducts";
+import { Product } from "@prisma/client";
 
 type Args = {
   search: string;
@@ -31,8 +30,8 @@ export const useProductsQuery = (initialData: SuperJSONResult, args: Args) => {
       const res = await fetch(url);
       const data = await res.json();
 
-      return SuperJSON.deserialize<GetProducts>(data);
+      return SuperJSON.deserialize<Product[]>(data);
     },
-    { initialData: SuperJSON.deserialize<GetProducts>(initialData) }
+    { initialData: SuperJSON.deserialize<Product[]>(initialData) }
   );
 };

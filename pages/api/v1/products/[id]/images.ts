@@ -1,7 +1,7 @@
 import { ApiError, apiWrapper } from "../../../../../lib/api/errors";
 import { options } from "../../../../../lib/api/options";
 import { getId } from "../../../../../lib/api/schema";
-import { getProduct } from "../../../../../lib/getProduct";
+import { db } from "../../../../../prisma";
 
 /**
  * @swagger
@@ -29,7 +29,7 @@ const handler = apiWrapper(async (req, res) => {
   }
 
   const id = getId(req);
-  const product = await getProduct(id, false);
+  const product = await db.product.findUnique({ where: { id } });
 
   if (!product) {
     throw new ApiError(404, "Product not found");
