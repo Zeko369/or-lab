@@ -4,42 +4,10 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import { writeFile } from "node:fs/promises";
 
-import { z } from "zod";
 import { zodToJsonSchema } from "zod-to-json-schema";
-
-const storeSchema = z.object({
-  id: z.number().int(),
-  name: z.string(),
-  description: z.string(),
-  image: z.string(),
-  address: z.string(),
-  owner: z.string(),
-  phoneNumber: z.string(),
-  opensAt: z.number().int(),
-  closesAt: z.number().int(),
-  rating: z.number(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
-});
+import { productSchema, storeSchema } from "./schema.mjs";
 
 const StoreSchema = zodToJsonSchema(storeSchema);
-
-const productSchema = z.object({
-  id: z.number().int(),
-  name: z.string(),
-  brand: z.string(),
-  shortDescription: z.string(),
-  description: z.string(),
-  images: z.array(z.string()),
-  price: z.number().int(),
-  discount: z.number().int(),
-  rating: z.number(),
-  stock: z.number().int(),
-  storeId: z.number().int(),
-  createdAt: z.date(),
-  updatedAt: z.date(),
-});
-
 const ProductSchema = zodToJsonSchema(productSchema);
 
 const fullProductSchema = productSchema.extend({
