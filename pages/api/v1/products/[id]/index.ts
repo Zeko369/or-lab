@@ -1,7 +1,7 @@
-import { ApiError, apiWrapper } from "../../../../../lib/errors";
-import { options } from "../../../../../lib/options";
-import { getId, productBody } from "../../../../../lib/schema";
-import { db } from "../../../../../prisma";
+import { ApiError, apiWrapper } from "~/lib/errors";
+import { options } from "~/lib/options";
+import { getId, productBody } from "~/lib/schema";
+import { db } from "~/prisma";
 
 const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
 

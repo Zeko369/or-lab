@@ -1,5 +1,5 @@
 import SuperJSON from "superjson";
-import { db } from "../../prisma";
+import { db } from "~/prisma";
 import { FilterTable } from "./FilterTable";
 
 export default async function DataTablePage() {

@@ -1,7 +1,7 @@
-import { ApiError, apiWrapper } from "../../../../../lib/errors";
-import { options } from "../../../../../lib/options";
-import { getId } from "../../../../../lib/schema";
-import { db } from "../../../../../prisma";
+import { ApiError, apiWrapper } from "~/lib/errors";
+import { options } from "~/lib/options";
+import { getId } from "~/lib/schema";
+import { db } from "~/prisma";
 
 /**
  * @swagger

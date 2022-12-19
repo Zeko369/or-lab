@@ -2,7 +2,7 @@
 
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { Button } from "../../components/Button";
+import { Button } from "~/components/Button";
 
 const SwaggerUIReact = dynamic(() => import("swagger-ui-react"), { ssr: false });
 

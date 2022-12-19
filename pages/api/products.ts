@@ -1,7 +1,7 @@
 import type { NextApiHandler } from "next";
 import SuperJSON from "superjson";
 import { writeToString } from "@fast-csv/format";
-import { db } from "../../prisma";
+import { db } from "~/prisma";
 
 const CSV_CONFIG = [
   { key: "id", getter: "id" },

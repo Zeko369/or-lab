@@ -1,6 +1,6 @@
 import { createSwaggerSpec } from "next-swagger-doc";
 import { SwaggerUI } from "./SwaggerUi";
-import nextSwaggerDoc from "../../config/next-swagger-doc.json";
+import nextSwaggerDoc from "~/config/next-swagger-doc.json";
 
 import "swagger-ui-react/swagger-ui.css";
 
