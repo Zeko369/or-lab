@@ -33,7 +33,7 @@ export class ApiError extends Error {
   }
 }
 
-type MyNextApiHandler<T = any> = (
+export type MyNextApiHandler<T = any> = (
   req: NextApiRequest & { method: string },
   res: NextApiResponse<T>
 ) => Promise<void | NextApiResponse<T>>;
