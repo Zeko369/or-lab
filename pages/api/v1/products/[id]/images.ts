@@ -1,6 +1,6 @@
-import { ApiError, apiWrapper } from "../../../../../lib/api/errors";
-import { options } from "../../../../../lib/api/options";
-import { getId } from "../../../../../lib/api/schema";
+import { ApiError, apiWrapper } from "../../../../../lib/errors";
+import { options } from "../../../../../lib/options";
+import { getId } from "../../../../../lib/schema";
 import { db } from "../../../../../prisma";
 
 /**

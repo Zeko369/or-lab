@@ -1,6 +1,6 @@
-import { ApiError, apiWrapper } from "../../../../lib/api/errors";
-import { options } from "../../../../lib/api/options";
-import { productBody } from "../../../../lib/api/schema";
+import { ApiError, apiWrapper } from "../../../../lib/errors";
+import { options } from "../../../../lib/options";
+import { productBody } from "../../../../lib/schema";
 import { db } from "../../../../prisma";
 
 const handler = apiWrapper(async (req, res) => {

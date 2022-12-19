@@ -2,7 +2,7 @@ import { NextApiRequest } from "next";
 import { z } from "zod";
 
 import { ApiError } from "./errors";
-import { productSchema } from "../../schema.mjs";
+import { productSchema } from "../schema.mjs";
 
 export const idParams = z.object({
   id: z.coerce.number(),
