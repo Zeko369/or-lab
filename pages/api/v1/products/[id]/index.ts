@@ -20,10 +20,7 @@ const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 product:
- *                   $ref: '#/components/schemas/Product'
+ *               $ref: '#/components/schemas/ProductResponse'
  *       404:
  *         description: Product not found
  *         content:
@@ -129,7 +126,11 @@ const handler = apiWrapper(async (req, res) => {
   const id = getId(req);
   switch (req.method) {
     case "GET":
-      return res.json({ product: await db.product.findUniqueOrThrow({ where: { id } }) });
+      return res.json({
+        type: "object",
+        resourceType: "Product",
+        resource: await db.product.findUniqueOrThrow({ where: { id } }),
+      });
     case "PUT":
       const putBody = productBodySchema.parse(req.body);
       return res.json({

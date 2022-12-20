@@ -30,6 +30,22 @@ await Promise.all([
   ),
 
   writeFile(
+    join(dirname(fileURLToPath(import.meta.url)), "./public/schema/productResponse.json"),
+    JSON.stringify(
+      {
+        type: "object",
+        properties: {
+          type: { type: "string" },
+          resourceType: { type: "string" },
+          resource: ProductSchema,
+        },
+      },
+      null,
+      2
+    )
+  ),
+
+  writeFile(
     join(dirname(fileURLToPath(import.meta.url)), "./public/schema/productBody.json"),
     JSON.stringify(ProductBodySchema, null, 2)
   ),
@@ -42,6 +58,22 @@ await Promise.all([
   writeFile(
     join(dirname(fileURLToPath(import.meta.url)), "./public/schema/store.json"),
     JSON.stringify(StoreSchema, null, 2)
+  ),
+
+  writeFile(
+    join(dirname(fileURLToPath(import.meta.url)), "./public/schema/storeResponse.json"),
+    JSON.stringify(
+      {
+        type: "object",
+        properties: {
+          type: { type: "string" },
+          resourceType: { type: "string" },
+          resource: StoreSchema,
+        },
+      },
+      null,
+      2
+    )
   ),
 
   writeFile(

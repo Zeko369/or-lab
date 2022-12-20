@@ -19,7 +19,11 @@ import { db } from "~/prisma";
  *             schema:
  *               type: object
  *               properties:
- *                 images:
+ *                 type:
+ *                   type: string
+ *                 resourceType:
+ *                   type: string
+ *                 resources:
  *                   type: array
  *                   items:
  *                     type: string
@@ -45,7 +49,11 @@ const handler = apiWrapper(async (req, res) => {
     throw new ApiError(404, "Product not found");
   }
 
-  res.json({ images: product.images });
+  res.json({
+    type: "array",
+    resourceType: "ImageUrl",
+    resources: product.images,
+  });
 });
 
 export default handler;

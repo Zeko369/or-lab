@@ -1,10 +1,14 @@
 // @ts-check
 
 import ProductSchema from "~/public/schema/product.json";
+import ProductResponseSchema from "~/public/schema/storeResponse.json";
+
 import FullProductSchema from "~/public/schema/fullProduct.json";
-import StoreSchema from "~/public/schema/store.json";
 import ProductBodySchema from "~/public/schema/productBody.json";
 import UpdateProductBodySchema from "~/public/schema/updateProductBody.json";
+
+import StoreResponseSchema from "~/public/schema/storeResponse.json";
+import StoreSchema from "~/public/schema/store.json";
 
 import ErrorSchema from "~/public/schema/utils/error.json";
 import IdParams from "~/public/schema/utils/idParams.json";
@@ -21,10 +25,13 @@ export const nextSwaggerConfig = {
       schemas: {
         Error: ErrorSchema,
         IdParams: IdParams,
+        ProductResponse: ProductResponseSchema,
+        StoreResponse: ProductResponseSchema,
+
         Product: ProductSchema,
         FullProduct: FullProductSchema,
-
         Store: StoreSchema,
+
         ProductBody: ProductBodySchema,
         UpdateProductBody: UpdateProductBodySchema,
       },

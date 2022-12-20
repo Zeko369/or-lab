@@ -18,7 +18,11 @@ import { productBodySchema } from "~/schema.mjs";
  *             schema:
  *               type: object
  *               properties:
- *                 products:
+ *                 type:
+ *                   type: string
+ *                 resourceType:
+ *                   type: string
+ *                 resources:
  *                   type: array
  *                   items:
  *                     $ref: '#/components/schemas/Product'
@@ -52,7 +56,11 @@ const handler = apiWrapper(async (req, res) => {
 
   switch (req.method) {
     case "GET":
-      return res.json({ products: await db.product.findMany() });
+      return res.json({
+        type: "array",
+        resourceType: "Product",
+        resources: await db.product.findMany(),
+      });
     case "POST":
       return res.status(201).json({
         product: await db.product.create({
