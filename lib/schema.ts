@@ -1,12 +1,6 @@
 import { NextApiRequest } from "next";
-import { z } from "zod";
-
 import { ApiError } from "./errors";
-import { productSchema } from "~/schema.mjs";
-
-export const idParams = z.object({
-  id: z.coerce.number(),
-});
+import { idParams } from "~/schema.mjs";
 
 export const getId = (request: NextApiRequest) => {
   const res = idParams.safeParse(request.query);
@@ -16,9 +10,3 @@ export const getId = (request: NextApiRequest) => {
 
   throw new ApiError(400, "ID Not passed or not a number");
 };
-
-export const productBody = productSchema.omit({
-  id: true,
-  createdAt: true,
-  updatedAt: true,
-});

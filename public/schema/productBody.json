@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "brand": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "price": {
+      "type": "integer"
+    },
+    "discount": {
+      "type": "integer"
+    },
+    "rating": {
+      "type": "number"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "storeId": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "name",
+    "brand",
+    "shortDescription",
+    "description",
+    "images",
+    "price",
+    "discount",
+    "rating",
+    "stock",
+    "storeId"
+  ],
+  "additionalProperties": false
+}

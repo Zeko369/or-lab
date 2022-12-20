@@ -1,40 +1,5 @@
 [
   {
-    "id": 1,
-    "name": "Bespoke Metal Shirt",
-    "brand": "Haley, Kohler and Terry",
-    "shortDescription": "Unde accusantium aliquid.",
-    "description": "Blanditiis quo quis qui possimus voluptates pariatur enim. Tenetur eos cupiditate vitae labore. Soluta omnis beatae est aut voluptatibus asperiores reprehenderit eligendi odit.",
-    "images": [
-      "https://picsum.photos/seed/systemic/800/800",
-      "https://picsum.photos/seed/Hybrid/800/800",
-      "https://picsum.photos/seed/and/800/800",
-      "https://picsum.photos/seed/wireless/800/800",
-      "https://picsum.photos/seed/Peso/800/800"
-    ],
-    "price": 48,
-    "discount": 0,
-    "rating": 3,
-    "stock": 15,
-    "storeId": 1,
-    "createdAt": "2022-11-02T07:08:16.190Z",
-    "updatedAt": "2022-11-02T07:08:16.190Z",
-    "store": {
-      "id": 1,
-      "name": "Hirthe Group",
-      "description": "Assumenda nostrum omnis cum maxime optio. Assumenda eligendi quam ipsa quia dolorem. Architecto incidunt alias inventore nesciunt. Fuga odio fugit. Doloribus inventore aliquid ab neque tempore id magnam.",
-      "image": "https://picsum.photos/seed/industrialisation/800/800",
-      "address": "985 Davonte Ports",
-      "owner": "Ms. Johanna Wehner",
-      "phoneNumber": "(443) 619-7296",
-      "opensAt": 21789,
-      "closesAt": 43182,
-      "rating": 3,
-      "createdAt": "2022-11-02T07:08:16.190Z",
-      "updatedAt": "2022-11-02T07:08:16.190Z"
-    }
-  },
-  {
     "id": 2,
     "name": "Incredible Steel Cheese",
     "brand": "Rogahn Group",
@@ -2447,6 +2412,99 @@
       "rating": 3,
       "createdAt": "2022-11-02T07:08:16.244Z",
       "updatedAt": "2022-11-02T07:08:16.244Z"
+    }
+  },
+  {
+    "id": 73,
+    "name": "string",
+    "brand": "string",
+    "shortDescription": "string",
+    "description": "string",
+    "images": [
+      "string"
+    ],
+    "price": 0,
+    "discount": 0,
+    "rating": 0,
+    "stock": 0,
+    "storeId": 1,
+    "createdAt": "2022-12-20T08:06:17.835Z",
+    "updatedAt": "2022-12-20T08:06:17.835Z",
+    "store": {
+      "id": 1,
+      "name": "Hirthe Group",
+      "description": "Assumenda nostrum omnis cum maxime optio. Assumenda eligendi quam ipsa quia dolorem. Architecto incidunt alias inventore nesciunt. Fuga odio fugit. Doloribus inventore aliquid ab neque tempore id magnam.",
+      "image": "https://picsum.photos/seed/industrialisation/800/800",
+      "address": "985 Davonte Ports",
+      "owner": "Ms. Johanna Wehner",
+      "phoneNumber": "(443) 619-7296",
+      "opensAt": 21789,
+      "closesAt": 43182,
+      "rating": 3,
+      "createdAt": "2022-11-02T07:08:16.190Z",
+      "updatedAt": "2022-11-02T07:08:16.190Z"
+    }
+  },
+  {
+    "id": 74,
+    "name": "string",
+    "brand": "string",
+    "shortDescription": "string",
+    "description": "string",
+    "images": [
+      "string"
+    ],
+    "price": 0,
+    "discount": 0,
+    "rating": 0,
+    "stock": 0,
+    "storeId": 1,
+    "createdAt": "2022-12-20T08:06:33.693Z",
+    "updatedAt": "2022-12-20T08:06:33.693Z",
+    "store": {
+      "id": 1,
+      "name": "Hirthe Group",
+      "description": "Assumenda nostrum omnis cum maxime optio. Assumenda eligendi quam ipsa quia dolorem. Architecto incidunt alias inventore nesciunt. Fuga odio fugit. Doloribus inventore aliquid ab neque tempore id magnam.",
+      "image": "https://picsum.photos/seed/industrialisation/800/800",
+      "address": "985 Davonte Ports",
+      "owner": "Ms. Johanna Wehner",
+      "phoneNumber": "(443) 619-7296",
+      "opensAt": 21789,
+      "closesAt": 43182,
+      "rating": 3,
+      "createdAt": "2022-11-02T07:08:16.190Z",
+      "updatedAt": "2022-11-02T07:08:16.190Z"
+    }
+  },
+  {
+    "id": 72,
+    "name": "string",
+    "brand": "string",
+    "shortDescription": "string",
+    "description": "string",
+    "images": [
+      "string"
+    ],
+    "price": 0,
+    "discount": 0,
+    "rating": 0,
+    "stock": 0,
+    "storeId": 1,
+    "createdAt": "2022-12-19T12:26:56.612Z",
+    "updatedAt": "2022-12-19T12:26:56.612Z",
+    "store": {
+      "id": 1,
+      "name": "Hirthe Group",
+      "description": "Assumenda nostrum omnis cum maxime optio. Assumenda eligendi quam ipsa quia dolorem. Architecto incidunt alias inventore nesciunt. Fuga odio fugit. Doloribus inventore aliquid ab neque tempore id magnam.",
+      "image": "https://picsum.photos/seed/industrialisation/800/800",
+      "address": "985 Davonte Ports",
+      "owner": "Ms. Johanna Wehner",
+      "phoneNumber": "(443) 619-7296",
+      "opensAt": 21789,
+      "closesAt": 43182,
+      "rating": 3,
+      "createdAt": "2022-11-02T07:08:16.190Z",
+      "updatedAt": "2022-11-02T07:08:16.190Z"
     }
   }
 ]

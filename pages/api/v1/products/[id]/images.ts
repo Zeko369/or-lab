@@ -7,21 +7,31 @@ import { db } from "~/prisma";
  * @swagger
  * /api/v1/products/{productId}/images:
  *   get:
- *     description: Gets all images for a product
+ *     tags:
+ *      - Product
+ *     description: List of images of a product
  *     parameters:
- *       - in: path
- *         name: productId
- *         description: Numeric ID of the product to get
- *         schema:
- *           type: integer
- *           required: true
+ *       - $ref: '#/components/schemas/IdParams'
  *     responses:
  *       200:
- *         description: hello world
- *       400:
- *        description: Invalid product id (not a number)
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 images:
+ *                   type: array
+ *                   items:
+ *                     type: string
  *       404:
  *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
  */
 const handler = apiWrapper(async (req, res) => {
   if (!options(req, res)) {

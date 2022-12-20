@@ -1,0 +1,10 @@
+{
+  "name": "productId",
+  "in": "path",
+  "description": "ID of product to return",
+  "required": true,
+  "schema": {
+    "type": "integer",
+    "format": "int64"
+  }
+}

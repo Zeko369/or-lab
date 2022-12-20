@@ -7,10 +7,29 @@ import { db } from "~/prisma";
  * @swagger
  * /api/v1/products/{productId}/store:
  *   get:
- *     description: Returns the hello world
+ *     tags:
+ *      - Product
+ *     description: Store of a product
+ *     parameters:
+ *       - $ref: '#/components/schemas/IdParams'
  *     responses:
  *       200:
- *         description: hello world
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Store'
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
  */
 const handler = apiWrapper(async (req, res) => {
   if (!options(req, res)) {

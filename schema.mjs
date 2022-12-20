@@ -31,3 +31,21 @@ export const productSchema = z.object({
   createdAt: z.date(),
   updatedAt: z.date(),
 });
+
+export const productBodySchema = productSchema.omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+});
+
+export const updateProductBodySchema = productSchema.partial();
+
+export const idParams = z.object({
+  id: z.coerce.number(),
+});
+
+export const errorSchema = z.object({
+  ok: z.boolean(),
+  message: z.string(),
+  response: z.unknown(),
+});

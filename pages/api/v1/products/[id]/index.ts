@@ -1,7 +1,8 @@
 import { ApiError, apiWrapper } from "~/lib/errors";
 import { options } from "~/lib/options";
-import { getId, productBody } from "~/lib/schema";
+import { getId } from "~/lib/schema";
 import { db } from "~/prisma";
+import { productBodySchema, updateProductBodySchema } from "~/schema.mjs";
 
 const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
 
@@ -9,25 +10,116 @@ const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
  * @swagger
  * /api/v1/products/{productId}:
  *   get:
- *     description: Returns the hello world
+ *     tags:
+ *      - Product
+ *     description: Get a product
+ *     parameters:
+ *       - $ref: '#/components/schemas/IdParams'
  *     responses:
  *       200:
- *         description: hello world
- *   put:
- *     description: Returns the hello world
- *     responses:
- *       200:
- *         description: hello world
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 product:
+ *                   $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
  *   patch:
- *     description: Returns the hello world
+ *     tags:
+ *      - Product
+ *     description: Patch a product
+ *     parameters:
+ *       - $ref: '#/components/schemas/IdParams'
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/UpdateProductBody'
  *     responses:
  *       200:
- *         description: hello world
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 product:
+ *                   $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
+ *   put:
+ *     tags:
+ *      - Product
+ *     description: Update a product
+ *     parameters:
+ *       - $ref: '#/components/schemas/IdParams'
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/ProductBody'
+ *     responses:
+ *       200:
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 product:
+ *                   $ref: '#/components/schemas/Product'
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
  *   delete:
- *     description: Returns the hello world
+ *     tags:
+ *      - Product
+ *     description: Deletes a product
+ *     parameters:
+ *       - $ref: '#/components/schemas/IdParams'
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *          schema:
+ *            $ref: '#/components/schemas/UpdateProductBody'
  *     responses:
  *       200:
- *         description: hello world
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 ok:
+ *                   type: boolean
+ *       404:
+ *         description: Product not found
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 store:
+ *                   $ref: '#/components/schemas/Error'
  */
 const handler = apiWrapper(async (req, res) => {
   if (!options(req, res, ALLOWED_HEADERS)) {
@@ -35,19 +127,18 @@ const handler = apiWrapper(async (req, res) => {
   }
 
   const id = getId(req);
-
   switch (req.method) {
     case "GET":
-      return res.json({ products: await db.product.findUniqueOrThrow({ where: { id } }) });
+      return res.json({ product: await db.product.findUniqueOrThrow({ where: { id } }) });
     case "PUT":
-      const createBody = productBody.parse(req.body);
+      const putBody = productBodySchema.parse(req.body);
       return res.json({
-        product: await db.product.update({ where: { id }, data: createBody }),
+        product: await db.product.update({ where: { id }, data: putBody }),
       });
     case "PATCH":
-      const updateBody = productBody.partial().parse(req.body);
+      const patchBody = updateProductBodySchema.parse(req.body);
       return res.json({
-        product: await db.product.update({ where: { id }, data: updateBody }),
+        product: await db.product.update({ where: { id }, data: patchBody }),
       });
     case "DELETE":
       await db.product.delete({ where: { id } });
