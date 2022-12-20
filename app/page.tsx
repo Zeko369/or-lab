@@ -3,13 +3,18 @@ import Link from "next/link";
 export default function Page() {
   return (
     <div className="flex flex-col">
-      <h1 className="text-3xl font-bold underline">OR Lab3</h1>
+      <h1 className="text-3xl font-bold underline">OR Lab4</h1>
+
+      <a href="/api/auth/login">Login</a>
+
+      <hr className="p-2" />
+
       <Link href="/swagger">Swagger</Link>
       <Link href="/datatable">Datatable</Link>
       <a href="/products.csv">Download CSV</a>
       <a href="/products.json">Download JSON</a>
 
-      <hr />
+      <hr className="p-2" />
 
       <a href="/schema/product.json">Download Product JSON Schema</a>
       <a href="/schema/fullProduct.json">Download Product JSON Schema (with store)</a>
