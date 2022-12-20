@@ -46,10 +46,7 @@ const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 product:
- *                   $ref: '#/components/schemas/Product'
+ *               $ref: '#/components/schemas/Product'
  *       404:
  *         description: Product not found
  *         content:
@@ -75,10 +72,7 @@ const ALLOWED_HEADERS = ["OPTIONS", "GET", "POST", "PUT", "PATCH", "DELETE"];
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 product:
- *                   $ref: '#/components/schemas/Product'
+ *               $ref: '#/components/schemas/Product'
  *       404:
  *         description: Product not found
  *         content:
@@ -133,14 +127,10 @@ const handler = apiWrapper(async (req, res) => {
       });
     case "PUT":
       const putBody = productBodySchema.parse(req.body);
-      return res.json({
-        product: await db.product.update({ where: { id }, data: putBody }),
-      });
+      return res.json(await db.product.update({ where: { id }, data: putBody }));
     case "PATCH":
       const patchBody = updateProductBodySchema.parse(req.body);
-      return res.json({
-        product: await db.product.update({ where: { id }, data: patchBody }),
-      });
+      return res.json(await db.product.update({ where: { id }, data: patchBody }));
     case "DELETE":
       await db.product.delete({ where: { id } });
       return res.json({ ok: true });
