@@ -661,12 +661,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "product": {
-                      "$ref": "#/components/schemas/Product"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Product"
                 }
               }
             }
@@ -712,12 +707,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "product": {
-                      "$ref": "#/components/schemas/Product"
-                    }
-                  }
+                  "$ref": "#/components/schemas/Product"
                 }
               }
             }
