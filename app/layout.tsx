@@ -1,4 +1,4 @@
-import { ReactQueryWrapper } from "../components/ReactQueryWrapper";
+import { ReactQueryWrapper } from "~/components/ReactQueryWrapper";
 import "./globals.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

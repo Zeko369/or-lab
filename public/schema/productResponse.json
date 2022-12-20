@@ -1,0 +1,77 @@
+{
+  "type": "object",
+  "properties": {
+    "type": {
+      "type": "string"
+    },
+    "resourceType": {
+      "type": "string"
+    },
+    "resource": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "shortDescription": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "images": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "price": {
+          "type": "integer"
+        },
+        "discount": {
+          "type": "integer"
+        },
+        "rating": {
+          "type": "number"
+        },
+        "stock": {
+          "type": "integer"
+        },
+        "storeId": {
+          "type": "integer"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "brand",
+        "shortDescription",
+        "description",
+        "images",
+        "price",
+        "discount",
+        "rating",
+        "stock",
+        "storeId",
+        "createdAt",
+        "updatedAt"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

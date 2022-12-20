@@ -1,5 +1,6 @@
 // @ts-check
 
+import { writeFile } from "node:fs/promises";
 import { createWriteStream } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -7,7 +8,6 @@ import { fileURLToPath } from "node:url";
 import { PrismaClient } from "@prisma/client";
 import { format } from "@fast-csv/format";
 import { get } from "lodash-es";
-import { writeFile } from "node:fs/promises";
 
 const prisma = new PrismaClient();
 const csvOutput = join(dirname(fileURLToPath(import.meta.url)), "./public/products.csv");

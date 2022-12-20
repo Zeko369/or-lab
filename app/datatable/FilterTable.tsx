@@ -4,9 +4,9 @@ import Image from "next/image";
 import { SuperJSONResult } from "superjson/dist/types";
 
 import { useProductsQuery, useProductsURL } from "./useProductsQuery";
-import { Input, InputFallback } from "../../components/Input";
-import { Select } from "../../components/Select";
-import { Button, useButtonClx } from "../../components/Button";
+import { Input } from "~/components/Input";
+import { Select } from "~/components/Select";
+import { Button, useButtonClx } from "~/components/Button";
 
 const SEARCH_FIELDS = [
   { label: "Name", value: "name" },

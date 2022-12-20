@@ -1,51 +1,14 @@
 {
   "type": "object",
   "properties": {
-    "id": {
-      "type": "integer"
-    },
-    "name": {
+    "type": {
       "type": "string"
     },
-    "brand": {
+    "resourceType": {
       "type": "string"
     },
-    "shortDescription": {
-      "type": "string"
-    },
-    "description": {
-      "type": "string"
-    },
-    "images": {
-      "type": "array",
-      "items": {
-        "type": "string"
-      }
-    },
-    "price": {
-      "type": "integer"
-    },
-    "discount": {
-      "type": "integer"
-    },
-    "rating": {
-      "type": "integer"
-    },
-    "stock": {
-      "type": "integer"
-    },
-    "storeId": {
-      "type": "integer"
-    },
-    "createdAt": {
-      "format": "date-time",
-      "type": "string"
-    },
-    "updatedAt": {
-      "format": "date-time",
-      "type": "string"
-    },
-    "store": {
+    "resource": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
       "type": "object",
       "properties": {
         "id": {
@@ -79,12 +42,12 @@
           "type": "number"
         },
         "createdAt": {
-          "format": "date-time",
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         },
         "updatedAt": {
-          "format": "date-time",
-          "type": "string"
+          "type": "string",
+          "format": "date-time"
         }
       },
       "required": [
@@ -100,23 +63,8 @@
         "rating",
         "createdAt",
         "updatedAt"
-      ]
+      ],
+      "additionalProperties": false
     }
-  },
-  "required": [
-    "id",
-    "name",
-    "brand",
-    "shortDescription",
-    "description",
-    "images",
-    "price",
-    "discount",
-    "rating",
-    "stock",
-    "storeId",
-    "createdAt",
-    "updatedAt",
-    "store"
-  ]
+  }
 }

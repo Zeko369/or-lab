@@ -1,5 +1,5 @@
-import { InputFallback } from "../../components/Input";
-import { Loader } from "../../components/Loader";
+import { InputFallback } from "~/components/Input";
+import { Loader } from "~/components/Loader";
 
 export default function Loading() {
   return (
