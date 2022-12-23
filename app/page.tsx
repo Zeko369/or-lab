@@ -2,23 +2,28 @@ import Link from "next/link";
 
 export default function Page() {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col gap-2">
       <h1 className="text-3xl font-bold underline">OR Lab4</h1>
 
-      <a href="/api/auth/login">Login</a>
+      <div className="flex flex-col">
+        <a href="/api/auth/login">Login</a>
+        <hr className="p-2" />
+      </div>
 
-      <hr className="p-2" />
+      <div className="flex flex-col">
+        <Link href="/swagger">Swagger</Link>
+        <Link href="/datatable">Datatable</Link>
+        <a href="/products.csv">Download CSV</a>
+        <a href="/products.json">Download JSON</a>
 
-      <Link href="/swagger">Swagger</Link>
-      <Link href="/datatable">Datatable</Link>
-      <a href="/products.csv">Download CSV</a>
-      <a href="/products.json">Download JSON</a>
+        <hr className="p-2" />
+      </div>
 
-      <hr className="p-2" />
-
-      <a href="/schema/product.json">Download Product JSON Schema</a>
-      <a href="/schema/fullProduct.json">Download Product JSON Schema (with store)</a>
-      <a href="/schema/store.json">Download Store JSON Schema</a>
+      <div className="flex flex-col">
+        <a href="/schema/product.json">Download Product JSON Schema</a>
+        <a href="/schema/fullProduct.json">Download Product JSON Schema (with store)</a>
+        <a href="/schema/store.json">Download Store JSON Schema</a>
+      </div>
 
       <code style={{ whiteSpace: "pre" }}>
         {`
