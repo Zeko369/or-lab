@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import Link from "next/link";
 
 export default function Page() {
@@ -7,6 +9,7 @@ export default function Page() {
 
       <div className="flex flex-col">
         <a href="/api/auth/login">Login</a>
+        <Link href="/profile">Profile</Link>
         <hr className="p-2" />
       </div>
 
