@@ -1,13 +1,17 @@
 import { ClientProviders } from "~/components/Providers";
+import { getServerSession } from "~/lib/auth";
+
 import "./globals.css";
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const user = await getServerSession();
+
   return (
     <html lang="en">
       <head />
       <body>
         <div className="p-2">
-          <ClientProviders>{children}</ClientProviders>
+          <ClientProviders user={user}>{children}</ClientProviders>
         </div>
       </body>
     </html>

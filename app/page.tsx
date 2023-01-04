@@ -1,16 +1,19 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
 import Link from "next/link";
+import { Button } from "~/components/Button";
 
 export default function Page() {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col space-y-2">
       <h1 className="text-3xl font-bold underline">OR Lab4</h1>
 
       <div className="flex flex-col">
-        <a href="/api/auth/login">Login</a>
-        <Link href="/profile">Profile</Link>
-        <hr className="p-2" />
+        <Link href="/profile">
+          <Button>Profile page</Button>
+        </Link>
+
+        <hr className="mt-2" />
       </div>
 
       <div className="flex flex-col">
@@ -19,7 +22,7 @@ export default function Page() {
         <a href="/products.csv">Download CSV</a>
         <a href="/products.json">Download JSON</a>
 
-        <hr className="p-2" />
+        <hr className="mt-2" />
       </div>
 
       <div className="flex flex-col">
