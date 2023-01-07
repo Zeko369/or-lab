@@ -1,4 +1,5 @@
 import { ApiError, apiWrapper } from "~/lib/errors";
+import { wrapStore } from "~/lib/jsonLD/store";
 import { options } from "~/lib/options";
 import { getId } from "~/lib/schema";
 import { db } from "~/prisma";
@@ -33,14 +34,21 @@ const handler = apiWrapper(async (req, res) => {
   const id = getId(req);
   const product = await db.product.findUnique({
     where: { id },
-    include: { store: true },
+    include: {
+      store: {
+        include: {
+          location: true,
+          owner: true,
+        },
+      },
+    },
   });
 
   if (!product) {
     throw new ApiError(404, "Product not found");
   }
 
-  res.json({ type: "object", resourceType: "Store", resource: product.store });
+  res.json(wrapStore(product.store));
 });
 
 export default handler;

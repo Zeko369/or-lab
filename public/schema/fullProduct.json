@@ -60,11 +60,11 @@
         "image": {
           "type": "string"
         },
-        "address": {
-          "type": "string"
+        "locationId": {
+          "type": "integer"
         },
-        "owner": {
-          "type": "string"
+        "ownerId": {
+          "type": "integer"
         },
         "phoneNumber": {
           "type": "string"
@@ -92,8 +92,8 @@
         "name",
         "description",
         "image",
-        "address",
-        "owner",
+        "locationId",
+        "ownerId",
         "phoneNumber",
         "opensAt",
         "closesAt",

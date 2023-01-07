@@ -15,7 +15,8 @@
     "export:data": "node export.mjs",
     "export:schema": "node ./schemaGen.mjs",
     "export:swagger": "node ./swaggerGen.mjs",
-    "export": "yarn export:data && yarn export:schema && yarn export:swagger"
+    "export": "yarn export:data && yarn export:schema && yarn export:swagger",
+    "type": "tsc --noEmit"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.3",

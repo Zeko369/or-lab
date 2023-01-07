@@ -10,13 +10,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Person {
+  id        Int      @id @default(autoincrement())
+  firstName String
+  lastName  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  Store     Store[]
+}
+
+model Location {
+  id             Int      @id @default(autoincrement())
+  address        String
+  addressCountry String
+  latitude       Float
+  longitude      Float
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  Store          Store[]
+}
+
 model Store {
   id          Int       @id @default(autoincrement())
   name        String
   description String
   image       String
-  address     String
-  owner       String
+  location    Location  @relation(fields: [locationId], references: [id])
+  locationId  Int
+  owner       Person    @relation(fields: [ownerId], references: [id])
+  ownerId     Int
   phoneNumber String
   opensAt     Int
   closesAt    Int
