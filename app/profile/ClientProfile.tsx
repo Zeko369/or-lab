@@ -40,7 +40,7 @@ export const ClientProfile: React.FC = () => {
       <div>
         <h2>You are not logged in</h2>
 
-        <a href="/api/auth/login">
+        <a href="/api/auth/login?returnTo=/profile">
           <Button variantColor="green">Login</Button>
         </a>
       </div>
@@ -89,7 +89,7 @@ export const ClientProfile: React.FC = () => {
           className="mt-2"
           size="sm"
           onClick={() => dumpMutation.mutateAsync()}
-          disabled={dumpMutation.isLoading}
+          disabled={dataQuery.isLoading || dumpMutation.isLoading}
         >
           Dump products
         </Button>
