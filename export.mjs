@@ -9,7 +9,6 @@ import { PrismaClient } from "@prisma/client";
 import { format } from "@fast-csv/format";
 import { get } from "lodash-es";
 
-const prisma = new PrismaClient();
 const csvOutput = join(dirname(fileURLToPath(import.meta.url)), "./public/products.csv");
 const jsonOutput = join(dirname(fileURLToPath(import.meta.url)), "./public/products.json");
 
@@ -43,8 +42,8 @@ const CSV_CONFIG = [
   { key: "store_updated_at", getter: "store.updatedAt" },
 ];
 
-const main = async () => {
-  await prisma.$connect();
+/** @param {PrismaClient} prisma */
+export const exportDatabase = async (prisma) => {
   const products = await prisma.product.findMany({ include: { store: true } });
 
   // CSV
@@ -55,9 +54,17 @@ const main = async () => {
   stream.end();
 
   // JSON
-  await writeFile(jsonOutput, JSON.stringify(products, null, 2));
+  await writeFile(
+    jsonOutput,
+    JSON.stringify({ timestamp: new Date(), resources: products }, null, 2)
+  );
 };
 
-main().finally(() => {
-  prisma.$disconnect();
-});
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const prisma = new PrismaClient();
+
+  prisma
+    .$connect()
+    .then(() => exportDatabase(prisma))
+    .finally(() => prisma.$disconnect());
+}

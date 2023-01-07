@@ -7,7 +7,6 @@
   "components": {
     "schemas": {
       "Error": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "ok": {
@@ -22,7 +21,8 @@
           "ok",
           "message"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "IdParams": {
         "name": "productId",
@@ -37,145 +37,192 @@
       "ProductResponse": {
         "type": "object",
         "properties": {
-          "type": {
+          "@type": {
+            "const": "http://schema.org/Store"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
             "type": "string"
           },
-          "resourceType": {
+          "description": {
             "type": "string"
           },
-          "resource": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
+          "image": {
+            "type": "string"
+          },
+          "locationId": {
+            "type": "integer"
+          },
+          "ownerId": {
+            "type": "integer"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "opensAt": {
+            "type": "integer"
+          },
+          "closesAt": {
+            "type": "integer"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "location": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "image": {
-                "type": "string"
+              "@type": {
+                "const": "http://schema.org/GeoCoordinates"
               },
               "address": {
                 "type": "string"
               },
-              "owner": {
+              "addressCountry": {
                 "type": "string"
               },
-              "phoneNumber": {
-                "type": "string"
-              },
-              "opensAt": {
-                "type": "integer"
-              },
-              "closesAt": {
-                "type": "integer"
-              },
-              "rating": {
+              "latitude": {
                 "type": "number"
               },
-              "createdAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "updatedAt": {
-                "type": "string",
-                "format": "date-time"
+              "longitude": {
+                "type": "number"
               }
-            },
-            "required": [
-              "id",
-              "name",
-              "description",
-              "image",
-              "address",
-              "owner",
-              "phoneNumber",
-              "opensAt",
-              "closesAt",
-              "rating",
-              "createdAt",
-              "updatedAt"
-            ],
-            "additionalProperties": false
+            }
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "http://schema.org/Person"
+              },
+              "@context": {
+                "type": "object",
+                "properties": {
+                  "@vocab": {
+                    "const": "http://schema.org/"
+                  },
+                  "firstName": {
+                    "const": "givenName"
+                  },
+                  "lastName": {
+                    "const": "familyName"
+                  }
+                }
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              }
+            }
           }
         }
       },
       "StoreResponse": {
         "type": "object",
         "properties": {
-          "type": {
+          "@type": {
+            "const": "http://schema.org/Store"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
             "type": "string"
           },
-          "resourceType": {
+          "description": {
             "type": "string"
           },
-          "resource": {
-            "$schema": "http://json-schema.org/draft-07/schema#",
+          "image": {
+            "type": "string"
+          },
+          "locationId": {
+            "type": "integer"
+          },
+          "ownerId": {
+            "type": "integer"
+          },
+          "phoneNumber": {
+            "type": "string"
+          },
+          "opensAt": {
+            "type": "integer"
+          },
+          "closesAt": {
+            "type": "integer"
+          },
+          "rating": {
+            "type": "number"
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "location": {
             "type": "object",
             "properties": {
-              "id": {
-                "type": "integer"
-              },
-              "name": {
-                "type": "string"
-              },
-              "description": {
-                "type": "string"
-              },
-              "image": {
-                "type": "string"
+              "@type": {
+                "const": "http://schema.org/GeoCoordinates"
               },
               "address": {
                 "type": "string"
               },
-              "owner": {
+              "addressCountry": {
                 "type": "string"
               },
-              "phoneNumber": {
-                "type": "string"
-              },
-              "opensAt": {
-                "type": "integer"
-              },
-              "closesAt": {
-                "type": "integer"
-              },
-              "rating": {
+              "latitude": {
                 "type": "number"
               },
-              "createdAt": {
-                "type": "string",
-                "format": "date-time"
-              },
-              "updatedAt": {
-                "type": "string",
-                "format": "date-time"
+              "longitude": {
+                "type": "number"
               }
-            },
-            "required": [
-              "id",
-              "name",
-              "description",
-              "image",
-              "address",
-              "owner",
-              "phoneNumber",
-              "opensAt",
-              "closesAt",
-              "rating",
-              "createdAt",
-              "updatedAt"
-            ],
-            "additionalProperties": false
+            }
+          },
+          "owner": {
+            "type": "object",
+            "properties": {
+              "@type": {
+                "const": "http://schema.org/Person"
+              },
+              "@context": {
+                "type": "object",
+                "properties": {
+                  "@vocab": {
+                    "const": "http://schema.org/"
+                  },
+                  "firstName": {
+                    "const": "givenName"
+                  },
+                  "lastName": {
+                    "const": "familyName"
+                  }
+                }
+              },
+              "firstName": {
+                "type": "string"
+              },
+              "lastName": {
+                "type": "string"
+              }
+            }
           }
         }
       },
       "Product": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
@@ -238,10 +285,10 @@
           "createdAt",
           "updatedAt"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "FullProduct": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
@@ -303,11 +350,11 @@
               "image": {
                 "type": "string"
               },
-              "address": {
-                "type": "string"
+              "locationId": {
+                "type": "integer"
               },
-              "owner": {
-                "type": "string"
+              "ownerId": {
+                "type": "integer"
               },
               "phoneNumber": {
                 "type": "string"
@@ -335,8 +382,8 @@
               "name",
               "description",
               "image",
-              "address",
-              "owner",
+              "locationId",
+              "ownerId",
               "phoneNumber",
               "opensAt",
               "closesAt",
@@ -363,10 +410,10 @@
           "updatedAt",
           "store"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "Store": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
@@ -381,11 +428,11 @@
           "image": {
             "type": "string"
           },
-          "address": {
-            "type": "string"
+          "locationId": {
+            "type": "integer"
           },
-          "owner": {
-            "type": "string"
+          "ownerId": {
+            "type": "integer"
           },
           "phoneNumber": {
             "type": "string"
@@ -413,8 +460,8 @@
           "name",
           "description",
           "image",
-          "address",
-          "owner",
+          "locationId",
+          "ownerId",
           "phoneNumber",
           "opensAt",
           "closesAt",
@@ -422,10 +469,10 @@
           "createdAt",
           "updatedAt"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "ProductBody": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "name": {
@@ -474,10 +521,10 @@
           "stock",
           "storeId"
         ],
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       },
       "UpdateProductBody": {
-        "$schema": "http://json-schema.org/draft-07/schema#",
         "type": "object",
         "properties": {
           "id": {
@@ -525,7 +572,8 @@
             "format": "date-time"
           }
         },
-        "additionalProperties": false
+        "additionalProperties": false,
+        "$schema": "http://json-schema.org/draft-07/schema#"
       }
     }
   },
@@ -808,6 +856,31 @@
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/v1/products/dump": {
+      "post": {
+        "tags": [
+          "Product"
+        ],
+        "description": "Dump products",
+        "responses": {
+          "200": {
+            "description": "DB dumped",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "ok": {
+                      "type": "boolean"
+                    }
+                  }
                 }
               }
             }

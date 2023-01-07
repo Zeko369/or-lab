@@ -66,9 +66,45 @@ await Promise.all([
       {
         type: "object",
         properties: {
-          type: { type: "string" },
-          resourceType: { type: "string" },
-          resource: StoreSchema,
+          "@type": { const: "http://schema.org/Store" },
+          id: { type: "integer" },
+          name: { type: "string" },
+          description: { type: "string" },
+          image: { type: "string" },
+          locationId: { type: "integer" },
+          ownerId: { type: "integer" },
+          phoneNumber: { type: "string" },
+          opensAt: { type: "integer" },
+          closesAt: { type: "integer" },
+          rating: { type: "number" },
+          createdAt: { type: "string", format: "date-time" },
+          updatedAt: { type: "string", format: "date-time" },
+          location: {
+            type: "object",
+            properties: {
+              "@type": { const: "http://schema.org/GeoCoordinates" },
+              address: { type: "string" },
+              addressCountry: { type: "string" },
+              latitude: { type: "number" },
+              longitude: { type: "number" },
+            },
+          },
+          owner: {
+            type: "object",
+            properties: {
+              "@type": { const: "http://schema.org/Person" },
+              "@context": {
+                type: "object",
+                properties: {
+                  "@vocab": { const: "http://schema.org/" },
+                  firstName: { const: "givenName" },
+                  lastName: { const: "familyName" },
+                },
+              },
+              firstName: { type: "string" },
+              lastName: { type: "string" },
+            },
+          },
         },
       },
       null,

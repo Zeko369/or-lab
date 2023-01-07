@@ -1,19 +1,42 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import Link from "next/link";
+import { db } from "~/prisma";
+import { Button } from "~/components/Button";
 
-export default function Page() {
+export default async function Page() {
+  const firstProduct = await db.product.findFirst({ orderBy: { id: "asc" } });
+
   return (
-    <div className="flex flex-col">
-      <h1 className="text-3xl font-bold underline">OR Lab3</h1>
-      <Link href="/swagger">Swagger</Link>
-      <Link href="/datatable">Datatable</Link>
-      <a href="/products.csv">Download CSV</a>
-      <a href="/products.json">Download JSON</a>
+    <div className="space-y-2">
+      <h1 className="text-3xl font-bold underline">OR Lab4</h1>
 
-      <hr />
+      <div className="flex flex-col">
+        <Link href="/profile">
+          <Button>Profile page</Button>
+        </Link>
 
-      <a href="/schema/product.json">Download Product JSON Schema</a>
-      <a href="/schema/fullProduct.json">Download Product JSON Schema (with store)</a>
-      <a href="/schema/store.json">Download Store JSON Schema</a>
+        {firstProduct ? (
+          <a href={`/api/v1/products/${firstProduct.id}/store`}>Get store for first product</a>
+        ) : null}
+
+        <hr className="mt-2" />
+      </div>
+
+      <div className="flex flex-col">
+        <Link href="/swagger">Swagger</Link>
+        <Link href="/datatable">Datatable</Link>
+        <a href="/products.csv">Download CSV</a>
+        <a href="/products.json">Download JSON</a>
+
+        <hr className="mt-2" />
+      </div>
+
+      <div className="flex flex-col">
+        <a href="/schema/product.json">Download Product JSON Schema</a>
+        <a href="/schema/fullProduct.json">Download Product JSON Schema (with store)</a>
+        <a href="/schema/store.json">Download Store JSON Schema</a>
+      </div>
 
       <code style={{ whiteSpace: "pre" }}>
         {`

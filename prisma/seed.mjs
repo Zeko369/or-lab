@@ -9,6 +9,19 @@ const randomImages = (count) => Array.from(new Array(count), randomImage);
 
 const main = async () => {
   await prisma.$connect();
+  const addresses = await prisma.$transaction(
+    Array.from({ length: 2 }, () =>
+      prisma.location.create({
+        data: {
+          address: faker.address.streetAddress(),
+          addressCountry: faker.address.countryCode("alpha-2"),
+          latitude: Number(faker.address.latitude()),
+          longitude: Number(faker.address.longitude()),
+        },
+      })
+    )
+  );
+
   for (let i = 0; i < 10; i++) {
     const opensAt = faker.datatype.number({ min: 0, max: 24 * 60 * 60 - 2 });
     const closesAt = faker.datatype.number({ min: opensAt + 1, max: 24 * 60 * 60 - 1 });
@@ -16,10 +29,10 @@ const main = async () => {
     await prisma.store.create({
       data: {
         name: faker.company.name(),
-        address: faker.address.streetAddress(),
         description: faker.lorem.paragraph(),
         image: randomImage(),
-        owner: faker.name.fullName(),
+        owner: { create: { firstName: faker.name.firstName(), lastName: faker.name.lastName() } },
+        location: { connect: { id: addresses[i % 2].id } },
         phoneNumber: faker.phone.number(),
         rating: faker.datatype.float({ min: 0, max: 5, precision: 3 }),
         products: {
