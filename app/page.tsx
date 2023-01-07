@@ -1,17 +1,24 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 
 import Link from "next/link";
+import { db } from "~/prisma";
 import { Button } from "~/components/Button";
 
-export default function Page() {
+export default async function Page() {
+  const firstProduct = await db.product.findFirst({ orderBy: { id: "asc" } });
+
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="space-y-2">
       <h1 className="text-3xl font-bold underline">OR Lab4</h1>
 
       <div className="flex flex-col">
         <Link href="/profile">
           <Button>Profile page</Button>
         </Link>
+
+        {firstProduct ? (
+          <a href={`/api/v1/products/${firstProduct.id}/store`}>Get store for first product</a>
+        ) : null}
 
         <hr className="mt-2" />
       </div>
